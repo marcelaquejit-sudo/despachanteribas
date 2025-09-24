@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://www.assessoriadespachanteribas.com.br/sitemap.xml
