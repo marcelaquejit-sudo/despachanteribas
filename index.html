@@ -519,6 +519,203 @@ section > * {
     .doc-rail{overflow-x:auto !important; scroll-snap-type:x mandatory}
     .doc-item{scroll-snap-align:start}
   }
+
+/* ===========================
+   MOBILE-FOCUSED OVERRIDES
+   Aplica melhorias para telas <= 768px
+   Cole no final do seu CSS
+=========================== */
+@media (max-width: 768px){
+
+  /* Base / Tipografia */
+  html, body{
+    font-size: 16px;          /* garante legibilidade mínima */
+    line-height: 1.6;
+    -webkit-text-size-adjust: 100%;
+  }
+  .container{ width: 94%; }   /* mais respiro nas laterais */
+  h1{ font-size: clamp(24px, 7vw, 28px); }
+  h2{ font-size: clamp(20px, 5.8vw, 24px); }
+  h3{ font-size: clamp(18px, 5vw, 20px); }
+  .lead{ font-size: 1rem; }
+  p, li, small{ font-size: 0.98rem; }
+
+  /* Header / Navegação */
+  header.site{ backdrop-filter: blur(8px); }
+  .nav{ padding: 12px 0; }
+  .brand .logo{ width: 28px; }
+  .brand strong{ font-size: 15px; }
+
+  .menu{ display: none !important; } /* sempre esconde no mobile */
+  .burger{
+    display: flex !important;
+    width: 40px; height: 40px; border-radius: 12px;
+  }
+
+  /* Gaveta mobile (painel) */
+  .panel{ display: none; }
+  .panel.open{ display: block; }
+  .drawer{
+    width: 88%;
+    padding: 18px;
+  }
+  .drawer a{
+    padding: 16px 8px;
+    font-size: 1rem;
+  }
+  .drawer .cta{
+    margin-top: 12px;
+    padding: 14px 14px;
+    border-radius: 12px;
+    font-weight: 800;
+  }
+
+  /* Topbar (aviso) */
+  .topbar{ height: auto; padding: 10px; font-size: 12px; }
+
+  /* HERO */
+  .hero-centered{
+    min-height: 72vh; /* não exagerar a altura no mobile */
+    background:
+      linear-gradient(rgba(0,0,0,.62), rgba(0,0,0,.78)),
+      url("img/hero-mobile.png") center/cover no-repeat !important;
+  }
+  .hero-stack{ padding: 56px 0; }
+  .hero-logo{ width: clamp(60px, 16vw, 80px); margin-bottom: 16px; }
+  .hero-title.framed{
+    border-width: 2px;
+    padding: 10px 14px;
+  }
+  .hero-desc{
+    max-width: 100%;
+    margin: 10px auto 16px;
+    font-size: 0.98rem;
+  }
+
+  /* CTAs: botões grandes e tocáveis */
+  .cta-row{ gap: 10px; }
+  .cta-row.center{ justify-content: center; }
+  .btn{
+    padding: 14px 18px;
+    font-size: 0.95rem;
+    min-height: 44px;              /* área de toque confortável */
+    border-radius: 999px;
+  }
+  .hero .btn{ width: 100%; }       /* CTAs da hero ocupam largura total no mobile */
+
+  /* Trust (suspensa) */
+  .trust{ padding: 14px 0 28px; }
+  .trust-card{ padding: 14px 14px; }
+  .trust-row{
+    grid-template-columns: 1fr 1fr;
+    gap: 2px;
+  }
+  .t-item{ padding: 12px; text-align: center; }
+  .t-item .copy strong{ font-size: 1rem; }
+
+  /* Seções: respiros e hierarquia */
+  section{ padding: 42px 0; }
+  .section-head{ margin-bottom: 18px; }
+  .section-head p{ font-size: 0.98rem; }
+
+  /* Cards de serviços */
+  .cards{
+    grid-template-columns: 1fr !important;
+    gap: 14px;
+  }
+  .card{
+    padding: 18px 16px;
+    border-radius: 16px;
+  }
+  .icon-badge{
+    width: 52px; height: 52px; border-radius: 12px;
+  }
+  .card .cta-row{ gap: 8px; }
+  .card .btn{ width: 100%; } /* botões dos cards full-width */
+
+  /* Passo a passo (steps) */
+  .steps{
+    grid-template-columns: 1fr !important;
+    gap: 12px;
+  }
+  .step{
+    text-align: left;
+    padding: 18px 16px 16px 16px;
+  }
+
+  /* Pré-requisitos (pílulas) */
+  #pre-requisitos{ padding-top: 40px; padding-bottom: 40px; }
+  .reqs{ grid-template-columns: 1fr !important; gap: 12px; }
+  .reqs .req{ padding: 16px 16px; border-radius: 14px; }
+  .reqs .req svg{ width: 26px; height: 26px; }
+
+  /* Métricas/KPIs (uma coluna + respiro) */
+  .metrics{ grid-template-columns: 1fr !important; gap: 14px; margin-bottom: 60px; }
+  .metric{ padding: 28px 20px; border-radius: 18px; }
+  .metric .num{ font-size: clamp(36px, 10vw, 54px); }
+
+  /* Depoimentos (carrossel) */
+  .t-wrap{ overflow: hidden; }
+  .t-track{ gap: 12px; }
+  .t-card{
+    min-width: 86%;
+    margin: 0 auto;
+    padding: 18px 16px;
+    border-radius: 16px;
+  }
+  .t-nav button{ width: 36px; height: 36px; }
+
+  /* Documentos – marquee vira swipe */
+  .doc-loop{ animation: none !important; } /* não rolar sozinho no mobile */
+  .doc-rail{
+    overflow-x: auto !important;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 10px;
+  }
+  .doc-item{
+    scroll-snap-align: start;
+    height: 60vh;            /* mais alto no mobile para “stories” */
+    border-radius: 14px;
+  }
+
+  /* Aviso Legal */
+  .legal-highlight{ padding: 36px 0; }
+  .lh-box{ padding: 18px 16px; border-radius: 12px; }
+  .lh-header h2{ font-size: 18px; }
+  .lh-box p{ font-size: 0.95rem; }
+
+  /* CTA final */
+  .cta-band{ padding: 40px 0; }
+  .cta-band .btn{ width: 100%; }
+
+  /* Footer */
+  .site-footer{ padding: 36px 0 24px; }
+  .footer-grid{ grid-template-columns: 1fr; gap: 16px; text-align: center; }
+  .footer-logo{ margin: 0 auto 8px; }
+  .footer-nav li, .footer-contact li{ margin-bottom: 10px; }
+
+  /* WhatsApp flutuante – não brigar com navegação por gestos */
+  .wa-float{
+    right: 14px; bottom: 18px;
+    width: 56px; height: 56px; border-radius: 50%;
+  }
+
+  /* Acessibilidade: foco visível maior no mobile */
+  a:focus-visible, button:focus-visible, .btn:focus-visible{
+    outline: 2px solid rgba(199,168,109,.8);
+    outline-offset: 3px;
+  }
+}
+
+/* ===== Movimento reduzido no mobile também ===== */
+@media (max-width: 768px) and (prefers-reduced-motion: reduce){
+  *{ scroll-behavior: auto !important; }
+  .reveal{ opacity: 1 !important; transform: none !important; transition: none !important; }
+  .t-track{ transition: none !important; }
+}
+
+
 </style>
   </script>
 
